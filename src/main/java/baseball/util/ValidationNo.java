@@ -16,7 +16,7 @@ public class ValidationNo {
     }
 
     private void checkSize(String numbers) {
-        if (numbers.length() != SIZE) {
+        if (isWrongSize(numbers.length())) {
             throw new IllegalArgumentException(SIZE_EXCEPTION_MESSAGE);
         }
     }
@@ -28,9 +28,13 @@ public class ValidationNo {
             checkedNum.add(checkNumeric(numbers.charAt(i)));
         }
 
-        if (checkedNum.size() != SIZE) {
+        if (isWrongSize(checkedNum.size())) {
             throw new IllegalArgumentException(NO_EXCEPTION_MESSAGE);
         }
+    }
+
+    private boolean isWrongSize(int size) {
+        return size != SIZE;
     }
 
     private int checkNumeric(char targetChar) {

@@ -21,11 +21,15 @@ public class Ball {
             return BallStatus.STRIKE;
         }
 
-        if (this.no == comBall.no) {
+        if (isSameNo(comBall)) {
             return BallStatus.BALL;
         }
 
         return BallStatus.NOTHING;
+    }
+
+    private boolean isSameNo(Ball ball) {
+        return this.no == ball.no;
     }
 
     @Override
