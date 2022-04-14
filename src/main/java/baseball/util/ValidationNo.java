@@ -35,7 +35,6 @@ public class ValidationNo {
 
     private int checkNumeric(char targetChar) {
         if (!Character.isDigit(targetChar)) {
-            System.out.println(targetChar + " : " + Character.isDigit(targetChar));
             throw new IllegalArgumentException(SIZE_EXCEPTION_MESSAGE);
         }
         return Character.getNumericValue(targetChar);
