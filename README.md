@@ -3,10 +3,13 @@
 - ###Ball 기능
   - [ ] Ball과 Ball을 비교하여 Strike, Ball, Nothing 확인 기능
 - ###Balls 기능
-  - [ ] 각 Ball을 확인 후, 결과 값을 반환하는 기능 
+  - [ ] 각 Ball을 확인 후, 결과 값을 반환하는 기능
+- ###Result 기능
+  - [ ] Strike, Ball 결과 값 저장
+  - [ ] 결과 값 format 출력 기능
 - ###기타 로직
   - [ ] 사용자 입력 값 validation 기능
-  - [ ] 각 화면 출력용 기능
+  
 
 ## 진행 방법
 * 숫자 야구 게임 요구사항을 파악한다.
