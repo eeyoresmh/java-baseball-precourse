@@ -8,20 +8,40 @@ public class ValidationNo {
     private final static String NO_EXCEPTION_MESSAGE = "중복 값이 존재합니다.";
     private final static int SIZE = 3;
 
-    public boolean isOk(String numbers) {
+    public boolean isOk(String numbers) throws IllegalArgumentException {
         checkSize(numbers);
-        checkDuplicateNumber(numbers);
+        checkDuplicateNumberThrowException(numbers);
 
         return true;
     }
 
-    private void checkSize(String numbers) {
+    public boolean checkSize(String numbers) {
         if (isWrongSize(numbers.length())) {
             throw new IllegalArgumentException(SIZE_EXCEPTION_MESSAGE);
         }
+
+        return true;
     }
 
-    private void checkDuplicateNumber(String numbers) {
+    public boolean checkDuplicateNumberThrowException(String numbers) throws IllegalArgumentException {
+
+        if (!isDuplicateNumber(numbers)) {
+            throw new IllegalArgumentException(NO_EXCEPTION_MESSAGE);
+        }
+
+        return true;
+    }
+
+    public boolean checkDuplicateNumber(String numbers) {
+
+        if (!isDuplicateNumber(numbers)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean isDuplicateNumber(String numbers) {
         Set<Integer> checkedNum = new HashSet<>();
 
         for (int i = 0; i < numbers.length(); i++) {
@@ -29,8 +49,10 @@ public class ValidationNo {
         }
 
         if (isWrongSize(checkedNum.size())) {
-            throw new IllegalArgumentException(NO_EXCEPTION_MESSAGE);
+            return false;
         }
+
+        return true;
     }
 
     private boolean isWrongSize(int size) {

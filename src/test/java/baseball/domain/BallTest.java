@@ -1,7 +1,6 @@
 package baseball.domain;
 
 import baseball.BallStatus;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,6 +15,7 @@ public class BallTest {
         BallStatus ballStatus = userBall.judgeBall(comBall);
 
         assertThat(ballStatus).isEqualTo(BallStatus.STRIKE);
+        assertThat(ballStatus.ordinal()).isEqualTo(2);
     }
 
     @Test
@@ -26,6 +26,7 @@ public class BallTest {
         BallStatus ballStatus = userBall.judgeBall(comBall);
 
         assertThat(ballStatus).isEqualTo(BallStatus.BALL);
+        assertThat(ballStatus.ordinal()).isEqualTo(1);
     }
 
     @Test
@@ -36,5 +37,6 @@ public class BallTest {
         BallStatus ballStatus = userBall.judgeBall(comBall);
 
         assertThat(ballStatus).isEqualTo(BallStatus.NOTHING);
+        assertThat(ballStatus.ordinal()).isEqualTo(0);
     }
 }

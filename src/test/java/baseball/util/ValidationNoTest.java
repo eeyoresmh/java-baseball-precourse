@@ -21,20 +21,20 @@ public class ValidationNoTest {
         String numbers = "12";
 
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> validationNo.isOk(numbers));
+            .isThrownBy(() -> validationNo.isOk(numbers));
     }
 
     @Test
-    public void 중복숫자_성공_체크() {
+    public void 정상숫자_성공_체크() {
         String numbers = "123";
-        validationNo.isOk(numbers);
+        assertThat(validationNo.isOk(numbers)).isEqualTo(true);
     }
 
     @Test
     public void 중복숫자_fail_체크() {
         String numbers = "121";
         assertThatIllegalArgumentException()
-                .isThrownBy(() -> validationNo.isOk(numbers));
+            .isThrownBy(() -> validationNo.isOk(numbers));
     }
 
     @Test
