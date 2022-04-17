@@ -6,7 +6,6 @@ public class Application {
 
         Game game = new Game();
         game.startGame();
-
-        System.out.println("게임 종료");
+        game.endGame();
     }
 }

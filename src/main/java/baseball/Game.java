@@ -10,13 +10,17 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
 
+	private static final String INPUT_NUMBERS = "숫자를 입력하세요";
+	private static final String RE_GAME_OR_END_GAME = "3개의 숫자를 모두 맞히셨습니다! 게임종료\n게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+	private static final String END_GAME = "게임 종료";
+
 	public void startGame() {
 		Balls comBall = new Balls(ComBallsUtil.create());
 		Result result;
 
 		do {
-			System.out.println("숫자를 입력하세요");
-			String userNumber = Console.readLine();
+			String userNumber = requestInput(INPUT_NUMBERS);
+
 			ValidationNo.isOk(userNumber);
 
 			Balls userBall = new Balls(userNumber);
@@ -25,21 +29,27 @@ public class Game {
 			System.out.println(result.toString());
 		} while (!result.isAllStrike());
 
-		System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
-
 		restartOrEndGame();
 	}
 
-	public void restartOrEndGame() {
-		System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-		String answer = Console.readLine();
+	private void restartOrEndGame() {
+		String answer = requestInput(RE_GAME_OR_END_GAME);
 
 		ValidationNo.checkOneOrTwo(answer);
 
 		if (answer.equals("1")) {
 			startGame();
 		}
+	}
 
-		return;
+	public void endGame() {
+		System.out.println(END_GAME);
+	}
+
+	private String requestInput(String message) {
+		System.out.println(message);
+		String answer = Console.readLine();
+
+		return answer;
 	}
 }
