@@ -1,12 +1,10 @@
 package baseball;
 
-import java.sql.SQLOutput;
-
 import baseball.domain.Balls;
+import baseball.domain.EndGame;
 import baseball.domain.Numbers;
 import baseball.domain.Result;
 import baseball.util.ComBallsUtil;
-import baseball.util.ValidationNo;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
@@ -30,11 +28,9 @@ public class Game {
 	}
 
 	private void restartOrEndGame() {
-		String answer = requestInput(RE_GAME_OR_END_GAME);
+		EndGame endGame = new EndGame(requestInput(RE_GAME_OR_END_GAME));
 
-		ValidationNo.checkOneOrTwo(answer);
-
-		if (answer.equals("1")) {
+		if (!endGame.isEndGame()) {
 			startGame();
 		}
 	}

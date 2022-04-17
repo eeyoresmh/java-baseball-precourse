@@ -1,16 +1,18 @@
 # 숫자 야구 게임
 ## 기능 구현
 - ###Ball
-  - [ ] Ball과 Ball을 비교하여 Strike, Ball, Nothing 확인 기능
+  - Ball과 Ball을 비교하여 Strike, Ball, Nothing 확인 기능
 - ###Balls
-  - [ ] 각 Ball을 확인 후, 결과 값을 반환하는 기능
+  - 각 Ball을 확인 후, 결과 값을 반환하는 기능
 - ###Result
-  - [ ] Strike, Ball 결과 값 저장
-  - [ ] 결과 값 format 출력 기능
-- ###기타 로직
-  - [ ] 사용자 입력 값 validation 기능
+  - Strike, Ball 결과 값 저장
+  - 결과 값 format 출력 기능
+- ###Ball Number 입력
+  - 사용자 입력 값 validation 기능
+- ###게임 종료 입력
+  - 사용자 입력 값 validation 기능
 - ### 게임
-  - [ ] 실행 기능
+  - 실행 기능
   
 
 ## 진행 방법
