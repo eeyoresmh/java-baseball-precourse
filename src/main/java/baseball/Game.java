@@ -3,6 +3,7 @@ package baseball;
 import java.sql.SQLOutput;
 
 import baseball.domain.Balls;
+import baseball.domain.Numbers;
 import baseball.domain.Result;
 import baseball.util.ComBallsUtil;
 import baseball.util.ValidationNo;
@@ -19,11 +20,7 @@ public class Game {
 		Result result;
 
 		do {
-			String userNumber = requestInput(INPUT_NUMBERS);
-
-			ValidationNo.isOk(userNumber);
-
-			Balls userBall = new Balls(userNumber);
+			Balls userBall = new Balls(new Numbers(requestInput(INPUT_NUMBERS)).getNumbers());
 
 			result = comBall.judgeBalls(userBall);
 			System.out.println(result.toString());
