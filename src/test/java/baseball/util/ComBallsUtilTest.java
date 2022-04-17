@@ -13,6 +13,6 @@ public class ComBallsUtilTest {
 		String number = comBallsUtil.create();
 
 		System.out.println(number);
-		assertThat(number.length()).isGreaterThan(0);
+		assertThat(number.length()).isEqualTo(3);
 	}
 }
